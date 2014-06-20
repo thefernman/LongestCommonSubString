@@ -1,0 +1,82 @@
+Fernando Campo
+1299228 Data Structures COP-3530 Summer 2014
+
+Outputs
+----------------------------------------
+Dartmouth1.txt vs Dartmouth2.txt
+
+run:
+Files used: dartmouth1.txt and dartmouth2.txt
+
+Sorting suffix array...
+
+Finding longest common prefix..
+
+Display results:
+
+The longest common substring is 41 characters '," said Hakan Tell, a classics...'
+
+Time taken was 13ms.
+BUILD SUCCESSFUL (total time: 0 seconds)
+
+----------------------------------------
+ModyDick.txt vs WarAndPeace.txt
+
+run:
+Files used: MobyDick.txt and WarAndPeace.txt
+
+Sorting suffix array...
+
+Finding longest common prefix..
+
+Display results:
+
+The longest common substring is 37 characters 's at one and the same instant ...'
+
+Time taken was 5560ms.
+BUILD SUCCESSFUL (total time: 6 seconds)
+----------------------------------------
+Dartmouth2.txt vs Dartmouth2.txt
+
+run:
+Files used: Dartmouth2.txt and Dartmouth2.txt
+
+Sorting suffix array...
+
+Finding longest common prefix..
+
+Display results:
+
+The longest common substring is 5394 characters 'Dartmouth College Ending Advan...'
+
+Time taken was 74ms.
+BUILD SUCCESSFUL (total time: 0 seconds)
+
+----------------------------------------
+MobyDick.txt vs MobyDick.txt
+
+run:
+Files used: MobyDick.txt and MobyDick.txt
+
+Sort is starting...
+
+Sort is finshed.
+
+Finding longest common prefix..
+
+Finished finding LCP.
+
+Display results:
+
+The longest common substring is 1185580 characters 'Loomings Call me Ishmael. Some...'
+BUILD SUCCESSFUL (total time: 12 minutes 22 seconds)
+
+----------------------------------------
+Assignment 1 Question:
+
+In the case of finding the longest common substring between MobyDick.txt and MobyDick.txt, the whole text is the longest common substring. The longest parts are where it has to compare all the characters in the sort and in the longestCommonPrefix method. We start by creating the string from the two files. Then we create a suffix array of all possible substrings. When creating the suffix array, you’re basically getting double substrings, one for each text file. But not by creating new string from the original string but by create a new class MyString objects that contains a pointer to the original string and the index position of where the substring starts. We then sort the suffix array. We then sort the suffix array via our overridden compareTo method by comparing adjacent substrings in our suffix array. 
+When you sort, the Arrarys.sort has to check each character till the end of each substring and since every two substring match at least the length of one of the substrings, the algorithm takes a lot longer when checking verse when the text files were different and mismatches happens more often. We go character by character comparing it till either substring reaches its end or we don't have a match. Then we check if the first substring and the second substring reaches it end and the characters matched, then they’re equal and return a zero. If the first substring reached its end and characters matches but not the second substring, then the first substring finished first and returns a negative one. If the second substring reached its end but not the first, then the second substring finished first and returns a positive 1. If neither substring reached its end, then compare the characters where they don’t match by subtracting them. If it’s negative, then its comes before. If it’s positive, then it comes afterward.
+Now that it’s sorted, we can find the longest consecutive character from adjacent substring. By using a similar method, we have an int array containing the number of consecutive characters found between two substrings. Also, when finding the longest common substring, it compares characters one by one and increments the lengths counter. Since every two substrings match, the algorithm takes a very long time to compute the length of the common substring. We use a while loop to transverse each substring to compare characters which, at least, loops around one million iterations and minus one iterations after that one. We then find the position of the max length in the LCP array and it’s the same position as the position of the substring in the suffix array. We then print out the pattern in substring. 
+
+
+
